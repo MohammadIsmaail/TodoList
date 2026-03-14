@@ -12,9 +12,7 @@ import {
 } from "../controller/controller.js";
 
 router.get("/user", userController);
-
 router.post("/register", registerController);
-
 router.post("/login", loginController);
 
 const AuthMiddleware = (req, res, next) => {
@@ -50,14 +48,8 @@ const AuthMiddleware = (req, res, next) => {
   });
 };
 router.post("/create-todo", AuthMiddleware, createTodoController);
-
 router.get("/get-todo", AuthMiddleware ,getTodoController)
-
 router.delete("/delete-todo/:id", AuthMiddleware, deleteTodoController)
-
 router.put("/update-todo/:id", AuthMiddleware, updateTodoController)
-
-// router.put("/update/:id",UserController)
-// router.delete("/delete/:id",UserController)
 
 export default router;
