@@ -189,4 +189,23 @@ export const updateTodoController = async (req, res) => {
   }
 };
 
-
+export const getTodoByIdController = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const result = await todoModel.findById(id);
+    res.json({
+      success: true,
+      code: 200,
+      message: "Todo Found!",
+      data: result,
+      error: false,
+    });
+  } catch (err) {
+    res.json({
+      success: false,
+      code: 500,
+      message: "Internal Server Error!",
+      error: true,
+    });
+  }
+};

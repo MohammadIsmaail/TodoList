@@ -1,7 +1,10 @@
 import express from "express";
 import dbConnect from "./dbConfig/db.js";
 import router from "./router/router.js";
+import cors from "cors";
 const app=express();
+
+app.use(cors());
 
 dbConnect()
 const Port = 3000;

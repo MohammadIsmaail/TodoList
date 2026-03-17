@@ -8,8 +8,11 @@ import {
   createTodoController,
   getTodoController,
   deleteTodoController,
-  updateTodoController
+  updateTodoController,
+  getTodoByIdController
 } from "../controller/controller.js";
+
+
 
 router.get("/user", userController);
 router.post("/register", registerController);
@@ -51,5 +54,6 @@ router.post("/create-todo", AuthMiddleware, createTodoController);
 router.get("/get-todo", AuthMiddleware ,getTodoController)
 router.delete("/delete-todo/:id", AuthMiddleware, deleteTodoController)
 router.put("/update-todo/:id", AuthMiddleware, updateTodoController)
+router.get("/get-todo/:id", AuthMiddleware , getTodoByIdController);
 
 export default router;
